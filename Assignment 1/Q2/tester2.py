@@ -26,6 +26,7 @@ def test_student_function(module_name, function_name, label_dict):
             test_image_path = os.path.join(os.path.join(os.getcwd(),'test'),test_image_name)
             output = student_function(test_image_path)
             total_score += (output == label_dict.get(test_image_name, -1))
+            print(total_score)
         except Exception as e:
             result = f"Error: {e}"
             is_passed = False

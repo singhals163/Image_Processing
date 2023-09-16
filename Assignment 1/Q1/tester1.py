@@ -18,6 +18,7 @@ def test_student_function(module_name, function_name):
     test_images = [filename for filename in os.listdir(subdirectory_path) if filename.endswith(".png")]
     total_score = 0
     is_passed = True
+    # print(np.size(test_images))
     for test_image_name in test_images:
         try:
             test_image_path = os.path.join(os.path.join(os.getcwd(),'test'),test_image_name)
@@ -25,11 +26,12 @@ def test_student_function(module_name, function_name):
             ground_truth_image=cv2.imread(os.path.join(os.path.join(os.getcwd(),'ground truth'),test_image_name))
 
             # debugging
-            cv2.imshow("g", abs(ground_truth_image))
-            cv2.imshow("d", np.uint8(np.absolute(np.uint32(ground_truth_image) - np.uint32(output_image))))
-            cv2.imshow("o",output_image)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
+            # cv2.imshow("g", abs(ground_truth_image))
+            # cv2.imshow("d", np.uint8(np.absolute(np.uint32(ground_truth_image) - np.uint32(output_image))))
+            # cv2.imshow("o",output_image)
+            # cv2.imshow("other",template)
+            # cv2.waitKey(0)
+            # cv2.destroyAllWindows()
 
             score = ssim(ground_truth_image,output_image,channel_axis=-1)
             print(score)
@@ -37,6 +39,7 @@ def test_student_function(module_name, function_name):
 
         except Exception as e:
             result = f"Error: {e}"
+            print("hi")
             is_passed = False
     if is_passed:
         return total_score

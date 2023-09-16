@@ -28,6 +28,7 @@ def test_student_function(module_name, function_name,roll_number):
         output_image = student_function(test_image_path)
         output_path = os.path.join(roll_number, test_image_name)
         cv2.imwrite(output_path, output_image)
+        print("a")
     return 0
 
 if __name__ == "__main__":
