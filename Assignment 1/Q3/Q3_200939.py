@@ -134,7 +134,3 @@ def solution(image_path):
     ## comment the line below before submitting else your code wont be executed##
     # pass
     return correct_alignment(image_path)
-
-
-# image_path = "./test/3_a.png"
-# solution(image_path)

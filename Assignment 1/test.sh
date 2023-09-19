@@ -5,7 +5,7 @@ read -p "Enter your roll no: " ROLL_NO
 
 mkdir test
 mkdir test3
-unzip "$ROLL_NO" -d test/ > trash.txt
+unzip "$ROLL_NO".zip -d test/ > trash.txt
 cp -r Q* test/
 cp -r test/"$ROLL_NO"/Q1* test/Q1/ 
 cp -r test/"$ROLL_NO"/Q2* test/Q2/ 

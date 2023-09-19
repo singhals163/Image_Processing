@@ -40,55 +40,55 @@ def check_corners(image):
     array = flag
     W = np.shape(image)[1]
     H = np.shape(image)[0]
-    orange_left = False
-    orange_top = False
-    orange_right = False
-    orange_bottom = False
-    green_left = False
-    green_top = False
-    green_right = False
-    green_bottom = False
+    o_l = False
+    o_t = False
+    o_r = False
+    o_b = False
+    g_l = False
+    g_t = False
+    g_r = False
+    g_b = False
     color_orange = [51, 153, 255]
     color_green = [0, 128, 0]
     dis = 10
     if np.array_equal(image[dis][dis], color_orange):
-        orange_top = True 
-        orange_left = True
+        o_t = True 
+        o_l = True
     if np.array_equal(image[dis][dis], color_green):
-        green_top = True 
-        green_left = True
+        g_t = True 
+        g_l = True
     if np.array_equal(image[H-dis][dis], color_orange):
-        orange_bottom = True 
-        orange_left = True
+        o_b = True 
+        o_l = True
     if np.array_equal(image[H-dis][dis], color_green):
-        green_bottom = True 
-        green_left = True
+        g_b = True 
+        g_l = True
     if np.array_equal(image[dis][W-dis], color_orange):
-        orange_top = True 
-        orange_right = True
+        o_t = True 
+        o_r = True
     if np.array_equal(image[dis][W-dis], color_green):
-        green_top = True 
-        green_right = True
+        g_t = True 
+        g_r = True
     if np.array_equal(image[H-dis][W-dis], color_orange):
-        orange_bottom = True 
-        orange_right = True
+        o_b = True 
+        o_r = True
     if np.array_equal(image[H-dis][W-dis], color_green):
-        green_bottom = True 
-        green_right = True
-    if(orange_top and green_bottom):
-        if((not orange_bottom) and (not green_top)):
+        g_b = True 
+        g_r = True
+    if(o_t and g_b):
+        if((not o_b) and (not g_t)):
             array = array
 
-    if(orange_bottom and green_top):
-        if((not orange_top) and (not green_bottom)):
+    if(o_b and g_t):
+        if((not o_t) and (not g_b)):
             array = cv2.rotate(array, cv2.ROTATE_180)
 
-    if(orange_left and green_right):
-        if((not orange_right) and (not green_left)):
+    if(o_l and g_r):
+        if((not o_r) and (not g_l)):
             array = cv2.rotate(array, cv2.ROTATE_90_COUNTERCLOCKWISE)
 
-    if(orange_right and green_left):
-        if((not orange_left) and (not green_right)):
+    if(o_r and g_l):
+        if((not o_l) and (not g_r)):
             array = cv2.rotate(array, cv2.ROTATE_90_CLOCKWISE)
     return array
 
